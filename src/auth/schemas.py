@@ -3,11 +3,6 @@ from datetime import datetime
 from pydantic import BaseModel, EmailStr
 
 
-# class UserCreate(BaseModel):
-#     email: EmailStr
-#     password: str
-
-
 class UserCreate(BaseModel):
     email: EmailStr
     username: str
@@ -23,3 +18,17 @@ class UserOut(BaseModel):
     first_name: str
     last_name: str
     is_active: bool
+
+
+class UserLogin(BaseModel):
+    email: EmailStr
+    password: str
+
+
+class Token(BaseModel):
+    access_token: str
+    token_type: str
+
+
+class TokenData(BaseModel):
+    id: int = None
